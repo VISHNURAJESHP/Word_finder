@@ -101,6 +101,7 @@ DB_PORT=5432</code></pre>
         <pre><code>{
     "name" : "your_name"    
     "email": "example@example.com",
+    "dob" : "YYYY-MM-DD",
     "password": "your_password"
 }</code></pre>
     </li>
