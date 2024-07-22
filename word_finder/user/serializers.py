@@ -12,7 +12,7 @@ class UserRegisterationSerializer(serializers.ModelSerializer):
 
         if password:
             validate_data['password'] = make_password(password)
-        instance = self.Meta.model(**validated_data)
+        instance = self.Meta.model(**validate_data)
         instance.save()
         return instance
     
