@@ -26,16 +26,16 @@ class LoginView(APIView):
         password = serializer.validated_data["password"]
         user = User.objects.filter(email=email).first()
 
-        if User is None:
+        if user is None:
             raise AuthenticationFailed("Invalid email")
 
-        if not User.check_password(password):
+        if not user.check_password(password):
 
             raise AuthenticationFailed("invalid password")
 
         payload = {
-            "id": User.id,
-            "email": User.email,
+            "id": user.id,
+            "email": user.email,
             "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             "iat": datetime.datetime.utcnow(),
         }

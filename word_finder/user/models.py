@@ -5,13 +5,13 @@ class User(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
-    dob = models.DateField
-    password = models.CharField(max_length=50)
-    CreatedAt = models.DateField(auto_now_add=True)
-    ModifiedAt = models.DateField(auto_now_add=True)
+    dob = models.DateField()
+    password = models.CharField(max_length=128)
+    CreatedAt = models.DateTimeField(auto_now_add=True)
+    ModifiedAt = models.DateTimeField(auto_now=True)
 
     def set_password(self, raw_password):
-        self.set_password = make_password(raw_password)
+        self.password = make_password(raw_password)
         self.save()
     
     def check_password(self, raw_password):

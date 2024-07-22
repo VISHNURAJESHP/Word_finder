@@ -8,4 +8,4 @@ class Paragraph(models.Model):
 
 class Word(models.Model):
     word = models.CharField(max_length=100)
-    Paragraph = models.ForeignKey(Paragraph, related_name='words', on_delete=models.CASCADE)
+    paragraph = models.ForeignKey(Paragraph, related_name='words', on_delete=models.CASCADE)
